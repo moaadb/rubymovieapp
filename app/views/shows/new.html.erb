@@ -1,0 +1,41 @@
+<%= link_to "Home", root_path %>
+<h1>Add a Showtime for <%= @movie.title %></h1>
+
+<%= form_with model: [@movie, @show], local: true do |form| %>
+  <% if @show.errors.any? %>
+    <div class="errors">
+      <h2>Errors:</h2>
+      <ul>
+        <% @show.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.label :time %>
+    <%= form.time_field :time %>
+  </div>
+
+  <div>
+    <%= form.label :seats_available %>
+    <%= form.number_field :seats_available %>
+  </div>
+
+  <div>
+    <%= form.label :ticket_price %>
+    <%= form.number_field :ticket_price, step: 0.01 %>
+  </div>
+
+  <div>
+    <%= form.submit "Create Showtime" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Movie', movie_path(@movie) %>

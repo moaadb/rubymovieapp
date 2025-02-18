@@ -1,0 +1,16 @@
+<%= link_to "Home", root_path %>
+<h1>Movies</h1>
+<% @movies.each do |movie| %>
+  <div>
+    <h2><%= link_to movie.title, movie_path(movie) %></h2>
+    <p>Genre: <%= movie.genre %></p>
+    <p>Rating: <%= movie.rating %></p>
+    <p>Duration: <%= movie.duration %> minutes</p>
+    <p>Language: <%= movie.language %></p>
+    <p>Release Date: <%= movie.release_date.strftime('%B %d, %Y') %></p>
+  </div>
+<% end %>
+
+<% if current_user.admin? %>
+  <%= link_to "Add New Movie", new_movie_path %>
+<% end %>

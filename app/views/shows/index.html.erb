@@ -1,0 +1,23 @@
+<%= link_to "Home", root_path %>
+<h1>Showtimes for <%= @movie.title %></h1>
+
+<% if @shows.any? %>
+  <ul>
+    <% @shows.each do |show| %>
+      <li>
+        <strong>Date:</strong> <%= show.date %>
+        <strong>Time:</strong> <%= show.time.strftime('%H:%M') %>
+        <strong>Seats Available:</strong> <%= show.seats_available %>
+        <strong>Ticket Price:</strong> $<%= show.ticket_price %>
+        <%= link_to 'View Show', movie_show_path(@movie, show) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No showtimes available for this movie yet.</p>
+<% end %>
+
+<% if current_user.admin? %>
+  <%= link_to 'Add Showtime', new_movie_show_path(@movie) %> |
+<% end %>
+<%= link_to 'Back to Movie', movie_path(@movie) %>

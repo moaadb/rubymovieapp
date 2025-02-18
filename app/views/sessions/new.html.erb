@@ -1,15 +1,14 @@
-<p id="alert"><%= alert %></p>
 <h1>Login</h1>
-<%= form_tag sessions_path do |form| %>
+<%= form_with(url: sessions_path, method: :post) do |form| %>
   <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
+    <%= form.label :username %>
+    <%= form.text_field :username %>
   </div>
   <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
   </div>
   <div class="actions">
-    <%= submit_tag "Login" %>
+    <%= form.submit "Login" %>
   </div>
 <% end %>

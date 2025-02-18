@@ -1,0 +1,57 @@
+<%= link_to "Home", root_path %>
+<% if current_user.admin? %>
+  <h1>All Users Tickets Purchase History</h1>
+<% else %>
+  <h1>Your Ticket Purchase History</h1>
+<% end %>
+
+<% if @tickets.any? %>
+  <table>
+    <thead>
+    <tr>
+      <th>Movie</th>
+      <th>Show Date</th>
+      <th>Show Time</th>
+      <% if current_user.admin? %>
+        <th>Username</th>
+      <% end %>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.show.movie.title %></td>
+        <td><%= ticket.show.date.strftime('%B %d, %Y') %></td>
+        <td><%= ticket.show.time.strftime('%H:%M') %></td>
+        <% if current_user.admin? %>
+          <td><%= ticket.user.username %></td>
+        <% end %>
+        <td><%= ticket.status %></td>
+        <% if current_user.admin? %>
+          <td><%= link_to 'Edit', edit_ticket_path(ticket), class: 'btn btn-warning' %></td>
+        <% end %>
+          <% if current_user.admin? %>
+            <td><%= button_to 'Delete', ticket_path(ticket), method: :delete, data: { confirm: 'Are you sure you want to delete this ticket?' }, class: 'btn btn-danger' %></td>
+          <% end %>
+        <td>
+          <% if ticket.status == "Booked" %>
+            <%= form_with url: cancel_user_ticket_path(current_user, ticket), method: :post do %>
+              <%= submit_tag "Cancel", class: "btn btn-danger", data: { confirm: "Are you sure you want to cancel this ticket?" } %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <% if current_user.admin? %>
+    <p>No tickets have been booked yet.</p>
+  <% else %>
+    <p>You haven't booked any tickets yet.</p>
+  <% end %>
+<% end %>
+<% if current_user.admin? %>
+  <%= link_to "Create New Ticket", new_ticket_path, class: "btn btn-primary" %>
+<% end %>

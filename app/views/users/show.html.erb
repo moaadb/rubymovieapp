@@ -1,10 +1,18 @@
+<%= link_to "Home", root_path %>
 <p style="color: green"><%= notice %></p>
 
 <%= render @user %>
 
 <div>
   <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
 
-  <%= button_to "Destroy this user", @user, method: :delete %>
+  <% if current_user.admin? %>
+    <%= link_to "Back to users", users_path %>
+<% end %>
+
+  <% unless current_user.admin? %>
+    <%= link_to "View Credit Cards", user_credit_cards_path(@user) %>
+    <%= button_to "Destroy this user", @user, method: :delete %>
+  <% end %>
+
 </div>

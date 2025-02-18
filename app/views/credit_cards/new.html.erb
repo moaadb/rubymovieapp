@@ -1,0 +1,12 @@
+<%= link_to "Home", root_path %>
+<% if !current_user.admin? %>
+  <%= form_with model: @credit_card, url: user_credit_cards_path(current_user) do |form| %>
+    <%= form.label :card_number %>
+    <%= form.text_field :card_number %>
+
+    <%= form.label :expiration_date %>
+    <%= form.date_select :expiration_date %>
+
+    <%= form.submit "Add Credit Card" %>
+  <% end %>
+<% end %>

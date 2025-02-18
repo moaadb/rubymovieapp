@@ -1,23 +1,27 @@
 <div id="<%= dom_id user %>">
-  <p>
-    <strong>Username:</strong>
-    <%= user.username %>
-  </p>
+  <% unless current_user.admin? && user.admin? %>
+    <p>
+      <strong>Username:</strong>
+      <%= user.username %>
+    </p>
+  <% end %>
 
   <p>
     <strong>Name:</strong>
     <%= user.name %>
   </p>
 
-  <p>
-    <strong>Address:</strong>
-    <%= user.address %>
-  </p>
+  <% unless current_user.admin? && user.admin? %>
+    <p>
+      <strong>Address:</strong>
+      <%= user.address %>
+    </p>
 
-  <p>
-    <strong>Phone:</strong>
-    <%= user.phone_number %>
-  </p>
+    <p>
+      <strong>Phone:</strong>
+      <%= user.phone_number %>
+    </p>
+  <% end %>
 
   <p>
     <strong>Email:</strong>

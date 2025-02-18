@@ -1,0 +1,28 @@
+<%= link_to "Home", root_path %>
+<h1>Edit Ticket</h1>
+
+<%= form_with model: @ticket, local: true do |f| %>
+  <div>
+    <%= f.label :user_id, "User" %>
+    <%= f.collection_select :user_id, User.all, :id, :username, prompt: "Select a user" %>
+  </div>
+
+  <div>
+    <%= f.label :show_id, "Show" %>
+    <%= f.collection_select :show_id, Show.all, :id, lambda { |s| "#{s.movie.title} - #{s.date.strftime('%B %d, %Y')} - #{s.time.strftime('%H:%M')}" }, prompt: "Select a show" %>
+  </div>
+
+  <div>
+    <%= f.label :credit_card_id, "Credit Card" %>
+    <%= f.collection_select :credit_card_id, current_user.credit_cards, :id, :card_number, prompt: "Select a credit card" %>
+  </div>
+
+  <div>
+    <%= f.label :status, "Ticket Status" %>
+    <%= f.select :status, options_for_select(['Booked', 'Cancelled'], @ticket.status) %>
+  </div>
+
+  <%= f.submit "Update Ticket", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Back to Tickets", user_tickets_path(current_user), class: "btn btn-secondary" %>
