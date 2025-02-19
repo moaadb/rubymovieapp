@@ -2,16 +2,20 @@
 
 This repository contains the project structure for the Ruby on Rails project for booking movies.
 
-*Members:* Moaad Benkaraache, Cole Bianco, Brian Huynh
+**Members:** Moaad Benkaraache, Cole Bianco, Brian Huynh
 
 The documentation for this project will primarily be covered in the [GitHub Wiki](https://github.ncsu.edu/bhhuynh/CSC_ECE517-Project2/wiki) pages and will be organizedthere instead of here in the README document. This will make it much
 easier to organize and grade. However, basic requirements and procedures for setting up and running the program will still be documented below.
 
+The link to access the website can be found here: https://rubymovieapp-production.up.railway.app/.
+
 ## Version Configurations
 
-*Ruby Version:* 3.4.0
-*Rails Version:* 8.0.1
-*sqlite3 Version:* 2.1 and above
+| Tool | Version |
+| ---- | ------- |
+| **Ruby Version:** | 3.4.0 |
+| **Rails Version:** | 8.0.1 |
+| **sqlite3 Version:** | 2.1 and above |
 
 If you need assistance in installing Ruby on Rails, please refer to the [Ruby Installation Guide](https://guides.rubyonrails.org/v5.0/getting_started.html).
 
@@ -50,9 +54,10 @@ Running this will allow the developer to access the website at [localhost:3000](
 
 ### Credentials for admin ###
 
-    username: admin
-
-    password: password
+```
+username: admin
+password: password
+```
 
 ### Navigation ###
 
@@ -86,4 +91,3 @@ all the users who have signed up, the movies list, and purchase history of all u
 5. Click *Book Ticket*
 6. Select a credit card
 7. Click *Book Ticket*
-

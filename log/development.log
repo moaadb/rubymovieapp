@@ -34831,3 +34831,383 @@ Processing by SessionsController#create as TURBO_STREAM
 Completed 200 OK in 67ms (Views: 1.8ms | ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 1.6ms)
 
 
+Started GET "/" for ::1 at 2025-02-18 19:16:54 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (4.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyCinemasApp'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='home'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 323.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 415.1ms | GC: 0.0ms)
+Completed 200 OK in 1890ms (Views: 436.6ms | ActiveRecord: 19.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/movies" for ::1 at 2025-02-18 19:16:59 -0500
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (3.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" /*action='index',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/views/movies/index.html.erb:3
+  Rendered movies/index.html.erb within layouts/application (Duration: 38.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 42.8ms | GC: 0.0ms)
+Completed 200 OK in 997ms (Views: 38.5ms | ActiveRecord: 9.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/movies/3" for ::1 at 2025-02-18 19:17:02 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  [1m[36mMovie Load (0.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 3 LIMIT 1 /*action='show',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/controllers/movies_controller.rb:41:in 'MoviesController#set_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 16.8ms | GC: 0.0ms)
+Started GET "/" for ::1 at 2025-02-18 19:17:03 -0500
+  Rendered layout layouts/application.html.erb (Duration: 23.8ms | GC: 0.0ms)
+Completed 200 OK in 757ms (Views: 26.5ms | ActiveRecord: 1.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='home'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 4.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | GC: 0.0ms)
+Completed 200 OK in 506ms (Views: 19.6ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2025-02-18 19:17:04 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:9
+  Rendered users/_user.html.erb (Duration: 6.3ms | GC: 0.0ms)
+  Rendered users/_user.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered users/index.html.erb within layouts/application (Duration: 106.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 109.2ms | GC: 0.0ms)
+Completed 200 OK in 653ms (Views: 112.7ms | ActiveRecord: 4.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-02-18 19:17:07 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='home'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 31.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 42.9ms | GC: 0.0ms)
+Completed 200 OK in 661ms (Views: 43.7ms | ActiveRecord: 1.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/2" for ::1 at 2025-02-18 19:17:08 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:65:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 22.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | GC: 0.0ms)
+Completed 200 OK in 453ms (Views: 27.8ms | ActiveRecord: 0.5ms (2 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-02-18 19:17:10 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='home'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 8.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | GC: 0.0ms)
+Completed 200 OK in 722ms (Views: 26.2ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/2/tickets" for ::1 at 2025-02-18 19:17:11 -0500
+Processing by TicketsController#index as HTML
+  Parameters: {"user_id" => "2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "tickets" LIMIT 1 /*action='index',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/views/tickets/index.html.erb:8
+  [1m[36mTicket Load (1.0ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" ORDER BY "tickets"."created_at" DESC /*action='index',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/views/tickets/index.html.erb:22
+  [1m[36mShow Load (0.7ms)[0m  [1m[34mSELECT "shows".* FROM "shows" WHERE "shows"."id" IN (5, 6) /*action='index',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/views/tickets/index.html.erb:22
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 2) /*action='index',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/views/tickets/index.html.erb:22
+  [1m[36mMovie Load (1.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 3 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/views/tickets/index.html.erb:24
+  [1m[36mCACHE Movie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 3 LIMIT 1[0m
+  ↳ app/views/tickets/index.html.erb:24
+  Rendered tickets/index.html.erb within layouts/application (Duration: 266.2ms | GC: 30.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 281.0ms | GC: 30.5ms)
+Completed 200 OK in 888ms (Views: 276.4ms | ActiveRecord: 10.7ms (7 queries, 1 cached) | GC: 30.5ms)
+
+
+Started GET "/" for ::1 at 2025-02-18 19:17:13 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='home'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 16.2ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 70.3ms | GC: 0.5ms)
+Completed 200 OK in 866ms (Views: 71.7ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/movies" for ::1 at 2025-02-18 19:17:19 -0500
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (1.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" /*action='index',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/views/movies/index.html.erb:3
+  Rendered movies/index.html.erb within layouts/application (Duration: 9.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | GC: 0.0ms)
+Completed 200 OK in 845ms (Views: 11.6ms | ActiveRecord: 1.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-02-18 19:17:20 -0500
+Processing by HomeController#index as HTML
+Started GET "/users" for ::1 at 2025-02-18 19:17:21 -0500
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='home'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 3.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | GC: 0.0ms)
+Completed 200 OK in 750ms (Views: 4.6ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-02-18 19:17:21 -0500
+Processing by UsersController#index as HTML
+Processing by HomeController#index as HTML
+Started GET "/movies" for ::1 at 2025-02-18 19:17:22 -0500
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:9
+  Rendered users/_user.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered users/_user.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered users/index.html.erb within layouts/application (Duration: 34.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 36.8ms | GC: 0.0ms)
+Completed 200 OK in 794ms (Views: 36.9ms | ActiveRecord: 1.3ms (2 queries, 0 cached) | GC: 0.5ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='home'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 7.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | GC: 0.0ms)
+Completed 200 OK in 823ms (Views: 8.9ms | ActiveRecord: 2.5ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" /*action='index',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/views/movies/index.html.erb:3
+  Rendered movies/index.html.erb within layouts/application (Duration: 3.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | GC: 0.0ms)
+Completed 200 OK in 778ms (Views: 12.9ms | ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/movies/5" for ::1 at 2025-02-18 19:17:23 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id" => "5"}
+  [1m[36mUser Load (42.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  [1m[36mMovie Load (1.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 5 LIMIT 1 /*action='show',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/controllers/movies_controller.rb:41:in 'MoviesController#set_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 8.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | GC: 0.0ms)
+Completed 200 OK in 754ms (Views: 32.1ms | ActiveRecord: 43.2ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/movies/5" for ::1 at 2025-02-18 19:17:24 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id" => "5"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 5 LIMIT 1 /*action='show',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/controllers/movies_controller.rb:41:in 'MoviesController#set_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | GC: 0.0ms)
+Completed 200 OK in 431ms (Views: 5.7ms | ActiveRecord: 0.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/movies/3" for ::1 at 2025-02-18 19:17:24 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  [1m[36mMovie Load (1.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 3 LIMIT 1 /*action='show',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/controllers/movies_controller.rb:41:in 'MoviesController#set_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 6.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | GC: 0.0ms)
+Completed 200 OK in 477ms (Views: 17.6ms | ActiveRecord: 1.9ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/movies/3/edit" for ::1 at 2025-02-18 19:17:27 -0500
+Processing by MoviesController#edit as HTML
+  Parameters: {"id" => "3"}
+Started GET "/movies/3/shows" for ::1 at 2025-02-18 19:17:27 -0500
+Processing by ShowsController#index as HTML
+  Parameters: {"movie_id" => "3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='edit',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 3 LIMIT 1 /*action='edit',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/controllers/movies_controller.rb:41:in 'MoviesController#set_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.html.erb within layouts/application
+  Rendered movies/edit.html.erb within layouts/application (Duration: 92.0ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 93.6ms | GC: 0.3ms)
+Completed 200 OK in 720ms (Views: 94.7ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/movies/3/edit" for ::1 at 2025-02-18 19:17:28 -0500
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='shows'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 3 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='shows'*/[0m
+  ↳ app/controllers/shows_controller.rb:47:in 'ShowsController#set_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering shows/index.html.erb within layouts/application
+  [1m[36mShow Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "shows" WHERE "shows"."movie_id" = 3 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='shows'*/[0m
+  ↳ app/views/shows/index.html.erb:4
+  [1m[36mShow Load (0.6ms)[0m  [1m[34mSELECT "shows".* FROM "shows" WHERE "shows"."movie_id" = 3 /*action='index',application='RubyCinemasApp',controller='shows'*/[0m
+  ↳ app/views/shows/index.html.erb:6
+  Rendered shows/index.html.erb within layouts/application (Duration: 36.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 42.0ms | GC: 0.0ms)
+Completed 200 OK in 769ms (Views: 52.4ms | ActiveRecord: 2.5ms (4 queries, 0 cached) | GC: 0.5ms)
+
+
+Processing by MoviesController#edit as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='edit',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 3 LIMIT 1 /*action='edit',application='RubyCinemasApp',controller='movies'*/[0m
+  ↳ app/controllers/movies_controller.rb:41:in 'MoviesController#set_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.html.erb within layouts/application
+  Rendered movies/edit.html.erb within layouts/application (Duration: 5.6ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | GC: 0.2ms)
+Completed 200 OK in 1347ms (Views: 7.8ms | ActiveRecord: 1.1ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/" for ::1 at 2025-02-18 19:17:30 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='home'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 3.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | GC: 0.0ms)
+Completed 200 OK in 628ms (Views: 7.3ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/movies/3/shows/5" for ::1 at 2025-02-18 19:17:31 -0500
+Processing by ShowsController#show as HTML
+  Parameters: {"movie_id" => "3", "id" => "5"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='RubyCinemasApp',controller='shows'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 3 LIMIT 1 /*action='show',application='RubyCinemasApp',controller='shows'*/[0m
+  ↳ app/controllers/shows_controller.rb:47:in 'ShowsController#set_movie'
+  [1m[36mShow Load (0.7ms)[0m  [1m[34mSELECT "shows".* FROM "shows" WHERE "shows"."movie_id" = 3 AND "shows"."id" = 5 LIMIT 1 /*action='show',application='RubyCinemasApp',controller='shows'*/[0m
+  ↳ app/controllers/shows_controller.rb:51:in 'ShowsController#set_show'
+  Rendering layout layouts/application.html.erb
+  Rendering shows/show.html.erb within layouts/application
+  Rendered shows/show.html.erb within layouts/application (Duration: 8.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | GC: 0.0ms)
+Completed 200 OK in 690ms (Views: 16.2ms | ActiveRecord: 1.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/movies/3/shows/5/tickets/new" for ::1 at 2025-02-18 19:17:33 -0500
+Processing by TicketsController#new as HTML
+  Parameters: {"movie_id" => "3", "show_id" => "5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='new',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  [1m[36mShow Load (0.5ms)[0m  [1m[34mSELECT "shows".* FROM "shows" WHERE "shows"."id" = 5 LIMIT 1 /*action='new',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/controllers/tickets_controller.rb:21:in 'TicketsController#new'
+  Rendering layout layouts/application.html.erb
+  Rendering tickets/new.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='new',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/views/tickets/new.html.erb:15
+  [1m[36mShow Load (0.8ms)[0m  [1m[34mSELECT "shows".* FROM "shows" /*action='new',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/views/tickets/new.html.erb:20
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 3 LIMIT 1 /*action='new',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/views/tickets/new.html.erb:20
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 3 LIMIT 1[0m
+  ↳ app/views/tickets/new.html.erb:20
+  Rendered tickets/new.html.erb within layouts/application (Duration: 60.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 64.9ms | GC: 0.0ms)
+Completed 200 OK in 678ms (Views: 64.8ms | ActiveRecord: 3.0ms (6 queries, 1 cached) | GC: 0.0ms)
+
+
+Started POST "/tickets" for ::1 at 2025-02-18 19:17:40 -0500
+Processing by TicketsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "ticket" => {"user_id" => "1", "show_id" => "5"}, "commit" => "Book Ticket"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='create',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  [1m[36mShow Load (0.6ms)[0m  [1m[34mSELECT "shows".* FROM "shows" WHERE "shows"."id" = 5 LIMIT 1 /*action='create',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/controllers/tickets_controller.rb:28:in 'TicketsController#create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='create',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/controllers/tickets_controller.rb:30:in 'TicketsController#create'
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 3 LIMIT 1 /*action='create',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/controllers/tickets_controller.rb:43:in 'TicketsController#create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/controllers/tickets_controller.rb:51:in 'TicketsController#create'
+  [1m[36mTicket Exists? (16.5ms)[0m  [1m[34mSELECT 1 AS one FROM "tickets" WHERE "tickets"."confirmation_number" = '20E6006C40C2EB9F' LIMIT 1 /*action='create',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/controllers/tickets_controller.rb:51:in 'TicketsController#create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/controllers/tickets_controller.rb:51:in 'TicketsController#create'
+  Rendering layout layouts/application.html.erb
+  Rendering tickets/new.html.erb within layouts/application
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='create',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/views/tickets/new.html.erb:15
+  [1m[36mShow Load (2.0ms)[0m  [1m[34mSELECT "shows".* FROM "shows" /*action='create',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/views/tickets/new.html.erb:20
+  [1m[36mMovie Load (1.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 3 LIMIT 1 /*action='create',application='RubyCinemasApp',controller='tickets'*/[0m
+  ↳ app/views/tickets/new.html.erb:20
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 3 LIMIT 1[0m
+  ↳ app/views/tickets/new.html.erb:20
+  Rendered tickets/new.html.erb within layouts/application (Duration: 77.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 81.5ms | GC: 0.0ms)
+Completed 200 OK in 666ms (Views: 82.7ms | ActiveRecord: 29.9ms (9 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-02-18 19:17:43 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='home'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | GC: 0.0ms)
+Completed 200 OK in 526ms (Views: 3.5ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
