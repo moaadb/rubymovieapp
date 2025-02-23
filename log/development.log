@@ -35211,3 +35211,507 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 526ms (Views: 3.5ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
 
 
+  [1m[36mActiveRecord::InternalMetadata Load (5.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (5.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyCinemasApp'*/[0m
+  [1m[35m (23.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "credit_cards" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "credit_cards" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "card_number" varchar, "expiration_date" date, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE INDEX "index_credit_cards_on_user_id" ON "credit_cards" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "movies" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "movies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "genre" varchar, "duration" integer, "language" varchar, "rating" varchar, "release_date" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "shows" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "shows" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_id" integer NOT NULL, "date" date, "time" time, "seats_available" integer, "ticket_price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE INDEX "index_shows_on_movie_id" ON "shows" ("movie_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "show_id" integer NOT NULL, "confirmation_number" varchar, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "credit_card_id" integer) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE INDEX "index_tickets_on_show_id" ON "tickets" ("show_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE INDEX "index_tickets_on_user_id" ON "tickets" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (4.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "admin" boolean, "default" varchar, "false" varchar, "phone_number" varchar, "address" varchar) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (3.1ms)[0m  [1m[35mPRAGMA foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acredit_cards" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "card_number" varchar, "expiration_date" date, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acredit_cards_on_user_id" ON "acredit_cards" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "acredit_cards" ("id","card_number","expiration_date","user_id","created_at","updated_at")
+                     SELECT "id","card_number","expiration_date","user_id","created_at","updated_at" FROM "credit_cards" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "credit_cards" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "credit_cards" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "card_number" varchar, "expiration_date" date, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_069bf994f3"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_credit_cards_on_user_id" ON "credit_cards" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "credit_cards" ("id","card_number","expiration_date","user_id","created_at","updated_at")
+                     SELECT "id","card_number","expiration_date","user_id","created_at","updated_at" FROM "acredit_cards" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acredit_cards" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[35mPRAGMA foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ashows" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_id" integer NOT NULL, "date" date, "time" time, "seats_available" integer, "ticket_price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_ashows_on_movie_id" ON "ashows" ("movie_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "ashows" ("id","movie_id","date","time","seats_available","ticket_price","created_at","updated_at")
+                     SELECT "id","movie_id","date","time","seats_available","ticket_price","created_at","updated_at" FROM "shows" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "shows" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "shows" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_id" integer NOT NULL, "date" date, "time" time, "seats_available" integer, "ticket_price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9e13f841bc"
+FOREIGN KEY ("movie_id")
+  REFERENCES "movies" ("id")
+) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_shows_on_movie_id" ON "shows" ("movie_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "shows" ("id","movie_id","date","time","seats_available","ticket_price","created_at","updated_at")
+                     SELECT "id","movie_id","date","time","seats_available","ticket_price","created_at","updated_at" FROM "ashows" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ashows" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[35mPRAGMA foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "show_id" integer NOT NULL, "confirmation_number" varchar, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "credit_card_id" integer) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atickets_on_user_id" ON "atickets" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_atickets_on_show_id" ON "atickets" ("show_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "atickets" ("id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id")
+                     SELECT "id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id" FROM "tickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "tickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "show_id" integer NOT NULL, "confirmation_number" varchar, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "credit_card_id" integer, CONSTRAINT "fk_rails_d7b6c9c5c9"
+FOREIGN KEY ("show_id")
+  REFERENCES "shows" ("id")
+) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tickets_on_show_id" ON "tickets" ("show_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tickets_on_user_id" ON "tickets" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "tickets" ("id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id")
+                     SELECT "id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id" FROM "atickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "show_id" integer NOT NULL, "confirmation_number" varchar, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "credit_card_id" integer) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_atickets_on_user_id" ON "atickets" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_atickets_on_show_id" ON "atickets" ("show_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "atickets" ("id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id")
+                     SELECT "id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id" FROM "tickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "tickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "show_id" integer NOT NULL, "confirmation_number" varchar, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "credit_card_id" integer, CONSTRAINT "fk_rails_d7b6c9c5c9"
+FOREIGN KEY ("show_id")
+  REFERENCES "shows" ("id")
+, CONSTRAINT "fk_rails_538a036fb9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_tickets_on_show_id" ON "tickets" ("show_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tickets_on_user_id" ON "tickets" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "tickets" ("id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id")
+                     SELECT "id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id" FROM "atickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyCinemasApp'*/[0m
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250218171450) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (3.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250218165502),
+(20250218154850),
+(20250218042655),
+(20250218040639),
+(20250212205307),
+(20250212192157),
+(20250212164839); /*application='RubyCinemasApp'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-02-22 12:36:24.783889', '2025-02-22 12:36:24.783891') RETURNING "key" /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '3edcca7a78302a7ed018068983fdc506abdda5be', '2025-02-22 12:36:24.796448', '2025-02-22 12:36:24.796450') RETURNING "key" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (29.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "credit_cards" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "credit_cards" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "card_number" varchar, "expiration_date" date, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE INDEX "index_credit_cards_on_user_id" ON "credit_cards" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "movies" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "movies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "genre" varchar, "duration" integer, "language" varchar, "rating" varchar, "release_date" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "shows" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "shows" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_id" integer NOT NULL, "date" date, "time" time, "seats_available" integer, "ticket_price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE INDEX "index_shows_on_movie_id" ON "shows" ("movie_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "show_id" integer NOT NULL, "confirmation_number" varchar, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "credit_card_id" integer) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE INDEX "index_tickets_on_show_id" ON "tickets" ("show_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_tickets_on_user_id" ON "tickets" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "admin" boolean, "default" varchar, "false" varchar, "phone_number" varchar, "address" varchar) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[35mPRAGMA foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acredit_cards" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "card_number" varchar, "expiration_date" date, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_acredit_cards_on_user_id" ON "acredit_cards" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "acredit_cards" ("id","card_number","expiration_date","user_id","created_at","updated_at")
+                     SELECT "id","card_number","expiration_date","user_id","created_at","updated_at" FROM "credit_cards" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "credit_cards" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "credit_cards" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "card_number" varchar, "expiration_date" date, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_069bf994f3"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_credit_cards_on_user_id" ON "credit_cards" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "credit_cards" ("id","card_number","expiration_date","user_id","created_at","updated_at")
+                     SELECT "id","card_number","expiration_date","user_id","created_at","updated_at" FROM "acredit_cards" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acredit_cards" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (12.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ashows" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_id" integer NOT NULL, "date" date, "time" time, "seats_available" integer, "ticket_price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ashows_on_movie_id" ON "ashows" ("movie_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "ashows" ("id","movie_id","date","time","seats_available","ticket_price","created_at","updated_at")
+                     SELECT "id","movie_id","date","time","seats_available","ticket_price","created_at","updated_at" FROM "shows" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "shows" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "shows" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_id" integer NOT NULL, "date" date, "time" time, "seats_available" integer, "ticket_price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9e13f841bc"
+FOREIGN KEY ("movie_id")
+  REFERENCES "movies" ("id")
+) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_shows_on_movie_id" ON "shows" ("movie_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "shows" ("id","movie_id","date","time","seats_available","ticket_price","created_at","updated_at")
+                     SELECT "id","movie_id","date","time","seats_available","ticket_price","created_at","updated_at" FROM "ashows" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ashows" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[35mPRAGMA foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "show_id" integer NOT NULL, "confirmation_number" varchar, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "credit_card_id" integer) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atickets_on_user_id" ON "atickets" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_atickets_on_show_id" ON "atickets" ("show_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "atickets" ("id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id")
+                     SELECT "id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id" FROM "tickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "tickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "show_id" integer NOT NULL, "confirmation_number" varchar, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "credit_card_id" integer, CONSTRAINT "fk_rails_d7b6c9c5c9"
+FOREIGN KEY ("show_id")
+  REFERENCES "shows" ("id")
+) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_tickets_on_show_id" ON "tickets" ("show_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tickets_on_user_id" ON "tickets" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "tickets" ("id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id")
+                     SELECT "id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id" FROM "atickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[35mPRAGMA foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "show_id" integer NOT NULL, "confirmation_number" varchar, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "credit_card_id" integer) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_atickets_on_user_id" ON "atickets" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_atickets_on_show_id" ON "atickets" ("show_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "atickets" ("id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id")
+                     SELECT "id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id" FROM "tickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "tickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "show_id" integer NOT NULL, "confirmation_number" varchar, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "credit_card_id" integer, CONSTRAINT "fk_rails_d7b6c9c5c9"
+FOREIGN KEY ("show_id")
+  REFERENCES "shows" ("id")
+, CONSTRAINT "fk_rails_538a036fb9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_tickets_on_show_id" ON "tickets" ("show_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_tickets_on_user_id" ON "tickets" ("user_id") /*application='RubyCinemasApp'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "tickets" ("id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id")
+                     SELECT "id","user_id","show_id","confirmation_number","status","created_at","updated_at","credit_card_id" FROM "atickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "atickets" /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='RubyCinemasApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyCinemasApp'*/[0m
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250218171450) /*application='RubyCinemasApp'*/[0m
+  [1m[35m (2.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250218165502),
+(20250218154850),
+(20250218042655),
+(20250218040639),
+(20250212205307),
+(20250212192157),
+(20250212164839); /*application='RubyCinemasApp'*/[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-02-22 12:36:25.121218', '2025-02-22 12:36:25.121221') RETURNING "key" /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2025-02-22 12:36:25.130789' WHERE "ar_internal_metadata"."key" = 'environment' /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '3edcca7a78302a7ed018068983fdc506abdda5be', '2025-02-22 12:36:25.136155', '2025-02-22 12:36:25.136156') RETURNING "key" /*application='RubyCinemasApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyCinemasApp'*/[0m
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'admin@example.com' LIMIT 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='RubyCinemasApp'*/[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@example.com' LIMIT 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'admin' LIMIT 1 /*application='RubyCinemasApp'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES ('admin', NULL, 'admin@example.com', '$2a$12$K0qMPjpP0CI7HHqblU2I/OkjGyD5TnPTKQjHoRKXApL8cgYXZzEye', '2025-02-22 12:36:25.825978', '2025-02-22 12:36:25.825978', 1, NULL, NULL, NULL, NULL) RETURNING "id" /*application='RubyCinemasApp'*/[0m
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='RubyCinemasApp'*/[0m
+Started GET "/" for ::1 at 2025-02-22 19:50:43 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (6.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyCinemasApp'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 4.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 277.6ms | GC: 0.0ms)
+Completed 200 OK in 1374ms (Views: 300.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/application-c94b29d2.css" for ::1 at 2025-02-22 19:50:47 -0500
+Started GET "/assets/application-ce023cd2.js" for ::1 at 2025-02-22 19:50:47 -0500
+Started GET "/assets/turbo.min-fae85750.js" for ::1 at 2025-02-22 19:50:47 -0500
+Started GET "/assets/controllers/hello_controller-b94c6ec2.js" for ::1 at 2025-02-22 19:50:47 -0500
+Started GET "/assets/controllers/index-eaeb0fd6.js" for ::1 at 2025-02-22 19:50:47 -0500
+Started GET "/assets/stimulus.min-4b1e420e.js" for ::1 at 2025-02-22 19:50:48 -0500
+Started GET "/assets/stimulus-loading-1fc53fe7.js" for ::1 at 2025-02-22 19:50:48 -0500
+Started GET "/assets/controllers/application-6f361061.js" for ::1 at 2025-02-22 19:50:48 -0500
+Started GET "/" for ::1 at 2025-02-22 19:50:55 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 31.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 34.5ms | GC: 0.0ms)
+Completed 200 OK in 571ms (Views: 35.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2025-02-22 19:51:02 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 58.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 63.0ms | GC: 0.0ms)
+Completed 200 OK in 513ms (Views: 66.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2025-02-22 19:51:16 -0500
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "bhhuynh", "password" => "[FILTERED]", "commit" => "Login"}
+  [1m[36mUser Load (9.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'bhhuynh' LIMIT 1 /*action='create',application='RubyCinemasApp',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:12:in 'SessionsController#create'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | GC: 0.0ms)
+Completed 200 OK in 759ms (Views: 11.3ms | ActiveRecord: 30.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-02-22 19:51:20 -0500
+Started GET "/signup" for ::1 at 2025-02-22 19:51:20 -0500
+Processing by HomeController#index as HTML
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | GC: 0.0ms)
+Completed 200 OK in 535ms (Views: 14.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 31.4ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 56.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 58.9ms | GC: 0.0ms)
+Completed 200 OK in 636ms (Views: 63.4ms | ActiveRecord: 7.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/signup" for ::1 at 2025-02-22 19:51:45 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 13.8ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 18.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | GC: 0.0ms)
+Completed 200 OK in 405ms (Views: 21.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2025-02-22 19:51:55 -0500
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"username" => "bh", "name" => "bh", "phone_number" => "bh", "address" => "bh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create User"}
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  [1m[36mUser Exists? (6.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'bh' LIMIT 1 /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'bh' LIMIT 1 /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 5.7ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 9.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 728ms (Views: 18.7ms | ActiveRecord: 8.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2025-02-22 19:52:06 -0500
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"username" => "bh", "name" => "bh", "phone_number" => "bh", "address" => "bh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create User"}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  [1m[36mUser Exists? (5.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'bh@bh' LIMIT 1 /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'bh' LIMIT 1 /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 24.1ms | GC: 8.2ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 27.4ms | GC: 8.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 30.7ms | GC: 8.6ms)
+Completed 422 Unprocessable Content in 721ms (Views: 32.6ms | ActiveRecord: 6.9ms (2 queries, 0 cached) | GC: 21.0ms)
+
+
+Started POST "/users" for ::1 at 2025-02-22 19:52:14 -0500
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"username" => "bh", "name" => "bh", "phone_number" => "bh", "address" => "bh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create User"}
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  [1m[36mUser Exists? (6.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'bh@bh.com' LIMIT 1 /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'bh' LIMIT 1 /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.6ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 5.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 663ms (Views: 10.0ms | ActiveRecord: 8.7ms (2 queries, 0 cached) | GC: 8.9ms)
+
+
+Started GET "/signup" for ::1 at 2025-02-22 19:53:56 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 17.9ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 57.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 125.4ms | GC: 0.2ms)
+Completed 200 OK in 850ms (Views: 161.0ms | ActiveRecord: 23.9ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Started POST "/users" for ::1 at 2025-02-22 19:54:27 -0500
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"username" => "bh", "name" => "bh", "phone_number" => "bh", "address" => "bh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create User"}
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  [1m[36mUser Exists? (19.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'bh@bh' LIMIT 1 /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'bh' LIMIT 1 /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES ('bh', 'bh', 'bh@bh', '$2a$12$I/HDToUmMpo2RFhi39yzoeuCrickkZmfxzfyEV5Jad0s6XY.qUnu2', '2025-02-23 00:54:28.198361', '2025-02-23 00:54:28.198361', NULL, NULL, NULL, 'bh', 'bh') RETURNING "id" /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+  [1m[36mTRANSACTION (13.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='RubyCinemasApp',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:29:in 'block in UsersController#create'
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 911ms (ActiveRecord: 35.1ms (3 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/users/2" for ::1 at 2025-02-22 19:54:28 -0500
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id" => "2"}
+Redirected to http://localhost:3000/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 651ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-02-22 19:54:29 -0500
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 5.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | GC: 0.0ms)
+Completed 200 OK in 670ms (Views: 15.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-02-22 20:00:59 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyCinemasApp'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 109.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 204.4ms | GC: 0.0ms)
+Completed 200 OK in 3442ms (Views: 270.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/" for ::1 at 2025-02-22 20:03:14 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | GC: 0.0ms)
+Completed 200 OK in 566ms (Views: 5.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-02-22 20:03:20 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | GC: 0.0ms)
+Completed 200 OK in 571ms (Views: 4.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2025-02-22 20:03:39 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 208.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 213.1ms | GC: 0.0ms)
+Completed 200 OK in 748ms (Views: 223.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2025-02-22 20:03:43 -0500
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "bh", "password" => "[FILTERED]", "commit" => "Login"}
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'bh' LIMIT 1 /*action='create',application='RubyCinemasApp',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:12:in 'SessionsController#create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 1157ms (ActiveRecord: 44.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-02-22 20:03:46 -0500
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='RubyCinemasApp',controller='home'*/[0m
+  ↳ app/controllers/application_controller.rb:11:in 'ApplicationController#current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 16.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | GC: 0.0ms)
+Completed 200 OK in 687ms (Views: 25.7ms | ActiveRecord: 2.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
