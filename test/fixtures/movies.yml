@@ -9,9 +9,9 @@ one:
   release_date: 2025-02-17
 
 two:
-  title: MyString
-  genre: MyString
+  title: MyString2
+  genre: MyString2
   duration: 1
-  language: MyString
-  rating: MyString
-  release_date: 2025-02-17
+  language: MyString2
+  rating: MyString2
+  release_date: 2099-02-17

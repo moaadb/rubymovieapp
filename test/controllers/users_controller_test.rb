@@ -5,6 +5,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
   end
 
+  def sign_in(user)
+    post user_session_path \
+      @user.username => user.username,
+      @user.password => user.password
+  end
+
   test "should get index" do
     get users_url
     assert_response :success
@@ -16,10 +22,21 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create user" do
-    user2 = @user
-    user2.email = "testing@tester.com"
     assert_difference("User.count") do
-      post users_url, params: { user: { email: @user.email, name: @user.name, password: "secret", password_confirmation: "secret", username: @user.username } }
+      post users_url, params:
+      {
+        user:
+        {
+          username: "yar",
+          name: "gar",
+          phone_number: "1231231234",
+          address: "Agh",
+          email: "testing@tester.com",
+          password: "secret",
+          password_confirmation: "secret"
+        }
+      }
+      puts response.body
     end
 
     assert_redirected_to user_url(User.last)
@@ -36,7 +53,19 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user" do
-    patch user_url(@user), params: { user: { email: @user.email, name: @user.name, password: "secret", password_confirmation: "secret", username: @user.username } }
+    patch user_url(@user), params:
+    {
+      user:
+      {
+        username: @user.username,
+        name: @user.name,
+        phone_number: "1231231234",
+        address: "Agh",
+        email: @user.email,
+        password: "secret",
+        password_confirmation: "secret"
+      }
+    }
     assert_redirected_to user_url(@user)
   end
 

@@ -2476,3 +2476,2202 @@ SessionsControllerTest: test_should_get_new
 SessionsControllerTest: test_should_get_destroy
 -----------------------------------------------
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (5.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 01:49:50.205271', '2025-02-23 01:49:50.205271'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 01:49:50.205271', '2025-02-23 01:49:50.205271');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 01:49:50.214039', '2025-02-23 01:49:50.214039'), (298486374, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 01:49:50.214039', '2025-02-23 01:49:50.214039');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 01:49:50.223370', '2025-02-23 01:49:50.223370'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 01:49:50.223370', '2025-02-23 01:49:50.223370');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 01:49:50.230850', '2025-02-23 01:49:50.230850', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 01:49:50.230850', '2025-02-23 01:49:50.230850', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$kd.ZPZqo9osDk5ytrXkG2O2ajWBALLgSsRQ8fZqEIzoEw490Vmo6O', '2025-02-23 01:49:50.239334', '2025-02-23 01:49:50.239334', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$hjRFxpwH6kilHaqk7gWgYutYZ2muwv00nIn5kqnsii1i1A/GTCCYi', '2025-02-23 01:49:50.239334', '2025-02-23 01:49:50.239334', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (1.3ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_exp_date_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+CreditCardTest: test_invalid:_incorrect_credit_card_num_string_length
+---------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+CreditCardTest: test_invalid:_credit_card_num_string_contains_non_digits
+------------------------------------------------------------------------
+  [1m[36mCreditCard Load (1.1ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+CreditCardTest: test_invalid:_create_credit_card_without_parameters
+-------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.4ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+CreditCardTest: test_valid:_create_credit_card
+----------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_user_ref_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_card_number_for_credit_card_instantiation
+--------------------------------------------------------------------------------
+  [1m[36mCreditCard Load (1.6ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+SessionsControllerTest: test_should_get_create
+----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------
+SessionsControllerTest: test_should_get_destroy
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/new" for 127.0.0.1 at 2025-02-22 20:49:50 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 18.6ms | GC: 2.9ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 26.1ms | GC: 3.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 91.8ms | GC: 18.0ms)
+Completed 200 OK in 155ms (Views: 109.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 21.9ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962/edit" for 127.0.0.1 at 2025-02-22 20:49:51 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 10ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started DELETE "/users/980190962" for 127.0.0.1 at 2025-02-22 20:49:51 -0500
+Processing by UsersController#destroy as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2025-02-22 20:49:51 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"user" => {"email" => "[FILTERED]", "name" => "one", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "username" => "one"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "one"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 10.2ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 11.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 26ms (Views: 14.3ms | ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 1.6ms)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/users/980190962" for 127.0.0.1 at 2025-02-22 20:49:51 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"user" => {"email" => "[FILTERED]", "name" => "one", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "username" => "one"}, "id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962" for 127.0.0.1 at 2025-02-22 20:49:51 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users" for 127.0.0.1 at 2025-02-22 20:49:51 -0500
+Processing by UsersController#index as HTML
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (5.6ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 01:56:07.876307', '2025-02-23 01:56:07.876307'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 01:56:07.876307', '2025-02-23 01:56:07.876307');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 01:56:07.886671', '2025-02-23 01:56:07.886671'), (298486374, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 01:56:07.886671', '2025-02-23 01:56:07.886671');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 01:56:07.895380', '2025-02-23 01:56:07.895380'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 01:56:07.895380', '2025-02-23 01:56:07.895380');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 01:56:07.903344', '2025-02-23 01:56:07.903344', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 01:56:07.903344', '2025-02-23 01:56:07.903344', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$VlGkccHuqZoM2RRPqDZXrOCEEsG2kXknJrzOveR5vprBT2oNh8/sS', '2025-02-23 01:56:07.912620', '2025-02-23 01:56:07.912620', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$k5F2U/LA4n3kmHjCCJdQ7.Z/osXCfbgXqGvT2RU0olI6hbh2diInC', '2025-02-23 01:56:07.912620', '2025-02-23 01:56:07.912620', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (1.4ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+SessionsControllerTest: test_should_get_create
+----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------
+SessionsControllerTest: test_should_get_destroy
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_card_number_for_credit_card_instantiation
+--------------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_exp_date_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.4ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+CreditCardTest: test_invalid:_credit_card_num_string_contains_non_digits
+------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+CreditCardTest: test_invalid:_incorrect_credit_card_num_string_length
+---------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.1ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+CreditCardTest: test_invalid:_create_credit_card_without_parameters
+-------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+CreditCardTest: test_valid:_create_credit_card
+----------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_user_ref_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users" for 127.0.0.1 at 2025-02-22 20:56:08 -0500
+Processing by UsersController#index as HTML
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 23ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.2ms)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/new" for 127.0.0.1 at 2025-02-22 20:56:08 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 23.3ms | GC: 2.2ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 33.9ms | GC: 2.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 86.8ms | GC: 4.6ms)
+Completed 200 OK in 159ms (Views: 109.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 6.5ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started DELETE "/users/980190962" for 127.0.0.1 at 2025-02-22 20:56:08 -0500
+Processing by UsersController#destroy as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962/edit" for 127.0.0.1 at 2025-02-22 20:56:08 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 298486374], ["LIMIT", 1]]
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2025-02-22 20:56:09 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"user" => {"email" => "[FILTERED]", "name" => "two", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "username" => "two"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "two"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 9.5ms | GC: 0.2ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 10.3ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | GC: 0.2ms)
+Completed 422 Unprocessable Content in 23ms (Views: 13.7ms | ActiveRecord: 2.9ms (2 queries, 0 cached) | GC: 0.2ms)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/users/980190962" for 127.0.0.1 at 2025-02-22 20:56:09 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"user" => {"email" => "[FILTERED]", "name" => "one", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "username" => "one"}, "id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962" for 127.0.0.1 at 2025-02-22 20:56:09 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (5.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 02:10:13.719527', '2025-02-23 02:10:13.719527'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 02:10:13.719527', '2025-02-23 02:10:13.719527');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 02:10:13.728141', '2025-02-23 02:10:13.728141'), (298486374, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 02:10:13.728141', '2025-02-23 02:10:13.728141');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 02:10:13.736107', '2025-02-23 02:10:13.736107'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 02:10:13.736107', '2025-02-23 02:10:13.736107');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 02:10:13.743259', '2025-02-23 02:10:13.743259', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 02:10:13.743259', '2025-02-23 02:10:13.743259', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$O9wutpnyTdym458429KjbO9cQGIvQx9F1UtnefwwwqUDv4F1PUrtq', '2025-02-23 02:10:13.751540', '2025-02-23 02:10:13.751540', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$TITLKy319KJ9PtK.6pDu9e3HTrKivpddZYy4e35Su.FlllazIm.1u', '2025-02-23 02:10:13.751540', '2025-02-23 02:10:13.751540', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (1.3ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_exp_date_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_user_ref_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.4ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+CreditCardTest: test_invalid:_incorrect_credit_card_num_string_length
+---------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+CreditCardTest: test_invalid:_credit_card_num_string_contains_non_digits
+------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+CreditCardTest: test_valid:_create_credit_card
+----------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_card_number_for_credit_card_instantiation
+--------------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+CreditCardTest: test_invalid:_create_credit_card_without_parameters
+-------------------------------------------------------------------
+  [1m[36mCreditCard Load (1.7ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/new" for 127.0.0.1 at 2025-02-22 21:10:14 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 17.8ms | GC: 2.9ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 25.6ms | GC: 4.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 90.8ms | GC: 18.2ms)
+Completed 200 OK in 150ms (Views: 108.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 21.3ms)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962" for 127.0.0.1 at 2025-02-22 21:10:14 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 12ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.8ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962/edit" for 127.0.0.1 at 2025-02-22 21:10:14 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started DELETE "/users/980190962" for 127.0.0.1 at 2025-02-22 21:10:14 -0500
+Processing by UsersController#destroy as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+  [1m[36mCACHE User Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/users/980190962" for 127.0.0.1 at 2025-02-22 21:10:14 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"user" => {"email" => "[FILTERED]", "name" => "one", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "username" => "one"}, "id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users" for 127.0.0.1 at 2025-02-22 21:10:14 -0500
+Processing by UsersController#index as HTML
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 298486374], ["LIMIT", 1]]
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2025-02-22 21:10:14 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"user" => {"email" => "[FILTERED]", "name" => "two", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "username" => "two"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "two"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 9.1ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 9.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 24ms (Views: 13.1ms | ActiveRecord: 1.4ms (2 queries, 0 cached) | GC: 0.5ms)
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------
+SessionsControllerTest: test_should_get_destroy
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+SessionsControllerTest: test_should_get_create
+----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (5.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 02:36:38.078245', '2025-02-23 02:36:38.078245'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 02:36:38.078245', '2025-02-23 02:36:38.078245');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 02:36:38.088295', '2025-02-23 02:36:38.088295'), (298486374, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 02:36:38.088295', '2025-02-23 02:36:38.088295');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 02:36:38.096385', '2025-02-23 02:36:38.096385'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 02:36:38.096385', '2025-02-23 02:36:38.096385');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 02:36:38.103458', '2025-02-23 02:36:38.103458', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 02:36:38.103458', '2025-02-23 02:36:38.103458', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$0JkC588P9aZBMdgFCDClveQus4tJIiYEtAokOPFvWqtt6nMvUOZcO', '2025-02-23 02:36:38.111870', '2025-02-23 02:36:38.111870', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$sm3cFeIE1RW7Go1JAOejbuZV6SM/J5GHYfWo6D4xDs6TGCfO6FGT.', '2025-02-23 02:36:38.111870', '2025-02-23 02:36:38.111870', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (1.2ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+SessionsControllerTest: test_should_get_create
+----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------
+SessionsControllerTest: test_should_get_destroy
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/users/980190962" for 127.0.0.1 at 2025-02-22 21:36:38 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"user" => {"email" => "[FILTERED]", "name" => "one", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "username" => "one"}, "id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 17ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 298486374], ["LIMIT", 1]]
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2025-02-22 21:36:38 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"user" => {"username" => "two", "name" => "two", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "two"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 26.7ms | GC: 4.4ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 37.8ms | GC: 5.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 101.1ms | GC: 18.5ms)
+Completed 422 Unprocessable Content in 185ms (Views: 170.0ms | ActiveRecord: 1.1ms (2 queries, 0 cached) | GC: 23.1ms)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/new" for 127.0.0.1 at 2025-02-22 21:36:39 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 8.4ms | GC: 1.6ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 10.1ms | GC: 2.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | GC: 3.2ms)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 3.2ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962/edit" for 127.0.0.1 at 2025-02-22 21:36:39 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started DELETE "/users/980190962" for 127.0.0.1 at 2025-02-22 21:36:39 -0500
+Processing by UsersController#destroy as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users" for 127.0.0.1 at 2025-02-22 21:36:39 -0500
+Processing by UsersController#index as HTML
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962" for 127.0.0.1 at 2025-02-22 21:36:39 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+CreditCardTest: test_valid:_create_credit_card
+----------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+CreditCardTest: test_invalid:_create_credit_card_without_parameters
+-------------------------------------------------------------------
+  [1m[36mCreditCard Load (1.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_exp_date_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+CreditCardTest: test_invalid:_incorrect_credit_card_num_string_length
+---------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+CreditCardTest: test_invalid:_credit_card_num_string_contains_non_digits
+------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_card_number_for_credit_card_instantiation
+--------------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_user_ref_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (5.9ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (1.3ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 02:38:50.254986', '2025-02-23 02:38:50.254986'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 02:38:50.254986', '2025-02-23 02:38:50.254986');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 02:38:50.265702', '2025-02-23 02:38:50.265702'), (298486374, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 02:38:50.265702', '2025-02-23 02:38:50.265702');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 02:38:50.283816', '2025-02-23 02:38:50.283816'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 02:38:50.283816', '2025-02-23 02:38:50.283816');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 02:38:50.294740', '2025-02-23 02:38:50.294740', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 02:38:50.294740', '2025-02-23 02:38:50.294740', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$WHdK8ZivwnBw2mXCey0LVurkXYLcK3dH/UBOutNhoeGzVI6W7jjCW', '2025-02-23 02:38:50.304351', '2025-02-23 02:38:50.304351', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$DEfrU27dtOs7ByoI0VKNRuEGAYpkAvnqBVuvSHA1T43t2BCFlsVlW', '2025-02-23 02:38:50.304351', '2025-02-23 02:38:50.304351', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (17.5ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (1.9ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------
+SessionsControllerTest: test_should_get_destroy
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+SessionsControllerTest: test_should_get_create
+----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/new" for 127.0.0.1 at 2025-02-22 21:38:50 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 22.0ms | GC: 1.3ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 29.8ms | GC: 1.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 103.4ms | GC: 18.1ms)
+Completed 200 OK in 156ms (Views: 118.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 18.3ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962/edit" for 127.0.0.1 at 2025-02-22 21:38:51 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 11ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users" for 127.0.0.1 at 2025-02-22 21:38:51 -0500
+Processing by UsersController#index as HTML
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started DELETE "/users/980190962" for 127.0.0.1 at 2025-02-22 21:38:51 -0500
+Processing by UsersController#destroy as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+  [1m[36mCACHE User Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962" for 127.0.0.1 at 2025-02-22 21:38:51 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2025-02-22 21:38:51 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"user" => {"username" => "yar", "name" => "gar", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "yar"], ["LIMIT", 1]]
+  [1m[36mUser Create (8.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "yar"], ["name", "gar"], ["email", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["created_at", "2025-02-23 02:38:51.353871"], ["updated_at", "2025-02-23 02:38:51.353871"], ["admin", nil], ["default", nil], ["false", nil], ["phone_number", "1231231234"], ["address", "Agh"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/980190963
+Completed 302 Found in 31ms (ActiveRecord: 10.4ms (3 queries, 0 cached) | GC: 1.9ms)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/users/980190962" for 127.0.0.1 at 2025-02-22 21:38:51 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"user" => {"email" => "[FILTERED]", "name" => "one", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "username" => "one"}, "id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_exp_date_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+CreditCardTest: test_invalid:_incorrect_credit_card_num_string_length
+---------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_card_number_for_credit_card_instantiation
+--------------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+CreditCardTest: test_invalid:_credit_card_num_string_contains_non_digits
+------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_user_ref_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+CreditCardTest: test_invalid:_create_credit_card_without_parameters
+-------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+CreditCardTest: test_valid:_create_credit_card
+----------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (6.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 02:42:54.525975', '2025-02-23 02:42:54.525975'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 02:42:54.525975', '2025-02-23 02:42:54.525975');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 02:42:54.537343', '2025-02-23 02:42:54.537343'), (298486374, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 02:42:54.537343', '2025-02-23 02:42:54.537343');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 02:42:54.547794', '2025-02-23 02:42:54.547794'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 02:42:54.547794', '2025-02-23 02:42:54.547794');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 02:42:54.556293', '2025-02-23 02:42:54.556293', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 02:42:54.556293', '2025-02-23 02:42:54.556293', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$rt9771EY4eBnNazZyTlX/e2bhWHw/NnYnUBfjAmBP7IpnEiG7ff9K', '2025-02-23 02:42:54.565931', '2025-02-23 02:42:54.565931', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$xDEhNO20jVak1dLObt2JtuecTSkn5eH5xC6Xk4d3oXJ0OjNZ/HMq2', '2025-02-23 02:42:54.565931', '2025-02-23 02:42:54.565931', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (2.1ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962/edit" for 127.0.0.1 at 2025-02-22 21:42:55 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 21ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users" for 127.0.0.1 at 2025-02-22 21:42:55 -0500
+Processing by UsersController#index as HTML
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/new" for 127.0.0.1 at 2025-02-22 21:42:55 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 21.2ms | GC: 2.4ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 32.4ms | GC: 3.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 93.7ms | GC: 17.9ms)
+Completed 200 OK in 164ms (Views: 119.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 19.2ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/users/980190962" for 127.0.0.1 at 2025-02-22 21:42:55 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"user" => {"username" => "one", "name" => "one", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started DELETE "/users/980190962" for 127.0.0.1 at 2025-02-22 21:42:55 -0500
+Processing by UsersController#destroy as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962" for 127.0.0.1 at 2025-02-22 21:42:55 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2025-02-22 21:42:55 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"user" => {"username" => "yar", "name" => "gar", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "yar"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "yar"], ["name", "gar"], ["email", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["created_at", "2025-02-23 02:42:55.622012"], ["updated_at", "2025-02-23 02:42:55.622012"], ["admin", nil], ["default", nil], ["false", nil], ["phone_number", "1231231234"], ["address", "Agh"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/980190963
+Completed 302 Found in 18ms (ActiveRecord: 1.9ms (3 queries, 0 cached) | GC: 2.2ms)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------
+SessionsControllerTest: test_should_get_destroy
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+SessionsControllerTest: test_should_get_create
+----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+CreditCardTest: test_invalid:_incorrect_credit_card_num_string_length
+---------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_card_number_for_credit_card_instantiation
+--------------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_exp_date_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+CreditCardTest: test_valid:_create_credit_card
+----------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+CreditCardTest: test_invalid:_credit_card_num_string_contains_non_digits
+------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_user_ref_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+CreditCardTest: test_invalid:_create_credit_card_without_parameters
+-------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (8.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (32.6ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (3.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 02:59:51.942655', '2025-02-23 02:59:51.942655'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 02:59:51.942655', '2025-02-23 02:59:51.942655');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 02:59:51.953622', '2025-02-23 02:59:51.953622'), (298486374, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 02:59:51.953622', '2025-02-23 02:59:51.953622');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 02:59:51.962710', '2025-02-23 02:59:51.962710'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 02:59:51.962710', '2025-02-23 02:59:51.962710');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 02:59:51.972219', '2025-02-23 02:59:51.972219', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 02:59:51.972219', '2025-02-23 02:59:51.972219', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$owEu4OGZQ95BtXdmvLOHqeXdAcze.ZaTnmh1tE.f1RrbfuBo8d70m', '2025-02-23 02:59:51.983109', '2025-02-23 02:59:51.983109', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$zqjU4Hk2LITieHp8pFT5hOXVgOKVrTQ/qTYUI7U/K4VgxFjARGsH2', '2025-02-23 02:59:51.983109', '2025-02-23 02:59:51.983109', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (9.5ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (3.6ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/users/980190962" for 127.0.0.1 at 2025-02-22 21:59:52 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"user" => {"username" => "one", "name" => "one", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 18ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2025-02-22 21:59:52 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"user" => {"username" => "yar", "name" => "gar", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "yar"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "yar"], ["name", "gar"], ["email", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["created_at", "2025-02-23 02:59:52.819533"], ["updated_at", "2025-02-23 02:59:52.819533"], ["admin", nil], ["default", nil], ["false", nil], ["phone_number", "1231231234"], ["address", "Agh"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/980190963
+Completed 302 Found in 16ms (ActiveRecord: 1.5ms (3 queries, 0 cached) | GC: 0.1ms)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started DELETE "/users/980190962" for 127.0.0.1 at 2025-02-22 21:59:52 -0500
+Processing by UsersController#destroy as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/new" for 127.0.0.1 at 2025-02-22 21:59:52 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 25.0ms | GC: 3.8ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 36.5ms | GC: 4.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 115.4ms | GC: 17.7ms)
+Completed 200 OK in 198ms (Views: 152.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 21.3ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962/edit" for 127.0.0.1 at 2025-02-22 21:59:53 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users" for 127.0.0.1 at 2025-02-22 21:59:53 -0500
+Processing by UsersController#index as HTML
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962" for 127.0.0.1 at 2025-02-22 21:59:53 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+CreditCardTest: test_valid:_create_credit_card
+----------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+CreditCardTest: test_invalid:_create_credit_card_without_parameters
+-------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.1ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+CreditCardTest: test_invalid:_credit_card_num_string_contains_non_digits
+------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_exp_date_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+CreditCardTest: test_invalid:_incorrect_credit_card_num_string_length
+---------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_card_number_for_credit_card_instantiation
+--------------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_user_ref_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+SessionsControllerTest: test_should_get_create
+----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------
+SessionsControllerTest: test_should_get_destroy
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (5.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 03:19:35.251576', '2025-02-23 03:19:35.251576'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 03:19:35.251576', '2025-02-23 03:19:35.251576');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 03:19:35.260092', '2025-02-23 03:19:35.260092'), (298486374, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 03:19:35.260092', '2025-02-23 03:19:35.260092');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 03:19:35.268226', '2025-02-23 03:19:35.268226'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 03:19:35.268226', '2025-02-23 03:19:35.268226');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 03:19:35.275475', '2025-02-23 03:19:35.275475', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 03:19:35.275475', '2025-02-23 03:19:35.275475', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$1NIg7Fj1fd9iAIOoW1jLNuOB5u8zv93LCYNpHUgBEAlAeF0mwKLP6', '2025-02-23 03:19:35.283593', '2025-02-23 03:19:35.283593', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$FiMjScGmSZt/9wjZzj4NQuK4rcn0JcndzFfE8GJFoEmydUDZLM7Xa', '2025-02-23 03:19:35.283593', '2025-02-23 03:19:35.283593', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (1.2ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_exp_date_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+CreditCardTest: test_invalid:_credit_card_num_string_contains_non_digits
+------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.4ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_card_number_for_credit_card_instantiation
+--------------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.4ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_user_ref_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+CreditCardTest: test_valid:_create_credit_card
+----------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+CreditCardTest: test_invalid:_incorrect_credit_card_num_string_length
+---------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+CreditCardTest: test_invalid:_create_credit_card_without_parameters
+-------------------------------------------------------------------
+  [1m[36mCreditCard Load (1.6ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+UsersControllerTest - test_should_destroy_user: NoMethodError raised.
+If you expected this exception, use `assert_raises` as near to the code that raises as possible.
+Other block based assertions (e.g. `assert_difference`) can be used, as long as `assert_raises` is inside their block.
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+UsersControllerTest - test_should_create_user: NameError raised.
+If you expected this exception, use `assert_raises` as near to the code that raises as possible.
+Other block based assertions (e.g. `assert_difference`) can be used, as long as `assert_raises` is inside their block.
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------
+SessionsControllerTest: test_should_get_destroy
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+SessionsControllerTest: test_should_get_create
+----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (7.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (3.7ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 03:20:14.663270', '2025-02-23 03:20:14.663270'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 03:20:14.663270', '2025-02-23 03:20:14.663270');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 03:20:14.671102', '2025-02-23 03:20:14.671102'), (298486374, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 03:20:14.671102', '2025-02-23 03:20:14.671102');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 03:20:14.678852', '2025-02-23 03:20:14.678852'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 03:20:14.678852', '2025-02-23 03:20:14.678852');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 03:20:14.684822', '2025-02-23 03:20:14.684822', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 03:20:14.684822', '2025-02-23 03:20:14.684822', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$rsXA2VDMalxdgRn0IQ0S3uyDbIPF3hFHetw7gq1t5JBdaU8Ase.EK', '2025-02-23 03:20:14.692374', '2025-02-23 03:20:14.692374', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$E.F7aXzZOf24Qlz75gZlJesA/WApRY/wKMMlDIP.a6/TWWGiEMFIu', '2025-02-23 03:20:14.692374', '2025-02-23 03:20:14.692374', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (1.1ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_exp_date_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+CreditCardTest: test_invalid:_incorrect_credit_card_num_string_length
+---------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.4ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+CreditCardTest: test_invalid:_create_credit_card_without_parameters
+-------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_user_ref_for_credit_card_instantiation
+-----------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.4ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+CreditCardTest: test_valid:_create_credit_card
+----------------------------------------------
+  [1m[36mCreditCard Load (0.5ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+CreditCardTest: test_invalid:_credit_card_num_string_contains_non_digits
+------------------------------------------------------------------------
+  [1m[36mCreditCard Load (0.2ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------
+CreditCardTest: test_invalid:_test_nil_card_number_for_credit_card_instantiation
+--------------------------------------------------------------------------------
+  [1m[36mCreditCard Load (1.3ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."id" = ? LIMIT ?[0m  [["id", 564809901], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------
+SessionsControllerTest: test_should_get_create
+----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------
+SessionsControllerTest: test_should_get_destroy
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/new" for 127.0.0.1 at 2025-02-22 22:20:15 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 32.9ms | GC: 4.8ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 47.2ms | GC: 5.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 127.5ms | GC: 23.5ms)
+Completed 200 OK in 224ms (Views: 157.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 27.5ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962/edit" for 127.0.0.1 at 2025-02-22 22:20:15 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 11ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2025-02-22 22:20:15 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"user" => {"username" => "yar", "name" => "gar", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "yar"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "yar"], ["name", "gar"], ["email", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["created_at", "2025-02-23 03:20:15.845847"], ["updated_at", "2025-02-23 03:20:15.845847"], ["admin", nil], ["default", nil], ["false", nil], ["phone_number", "1231231234"], ["address", "Agh"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/980190963
+Completed 302 Found in 22ms (ActiveRecord: 1.8ms (3 queries, 0 cached) | GC: 1.4ms)
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962" for 127.0.0.1 at 2025-02-22 22:20:15 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/users/980190962" for 127.0.0.1 at 2025-02-22 22:20:15 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"user" => {"username" => "one", "name" => "one", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started DELETE "/users/980190962" for 127.0.0.1 at 2025-02-22 22:20:15 -0500
+Processing by UsersController#destroy as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users" for 127.0.0.1 at 2025-02-22 22:20:15 -0500
+Processing by UsersController#index as HTML
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (7.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 03:46:56.630059', '2025-02-23 03:46:56.630059'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 03:46:56.630059', '2025-02-23 03:46:56.630059');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 03:46:56.641977', '2025-02-23 03:46:56.641977'), (298486374, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 03:46:56.641977', '2025-02-23 03:46:56.641977');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 03:46:56.650608', '2025-02-23 03:46:56.650608'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 03:46:56.650608', '2025-02-23 03:46:56.650608');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 03:46:56.658479', '2025-02-23 03:46:56.658479', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 03:46:56.658479', '2025-02-23 03:46:56.658479', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$8jJI9zGkZ70CdzF7lj8t7Oib.8Rs7Ym7F2tyC.bHYNuZceZkuMhYS', '2025-02-23 03:46:56.669459', '2025-02-23 03:46:56.669459', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$2cNXBvunXh4lAJa0tfzkjuuXsIZZYbJDmZyJL.NQuXHeo/3duvj5G', '2025-02-23 03:46:56.669459', '2025-02-23 03:46:56.669459', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (8.9ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (1.7ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2025-02-22 22:46:57 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"user" => {"username" => "yar", "name" => "gar", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "yar"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "yar"], ["name", "gar"], ["email", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["created_at", "2025-02-23 03:46:57.422678"], ["updated_at", "2025-02-23 03:46:57.422678"], ["admin", nil], ["default", nil], ["false", nil], ["phone_number", "1231231234"], ["address", "Agh"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/980190963
+Completed 302 Found in 38ms (ActiveRecord: 1.6ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/new" for 127.0.0.1 at 2025-02-22 22:46:57 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 13.4ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 20.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 74.6ms | GC: 0.0ms)
+Completed 200 OK in 141ms (Views: 90.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started DELETE "/users/980190962" for 127.0.0.1 at 2025-02-22 22:46:57 -0500
+Processing by UsersController#destroy as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962/edit" for 127.0.0.1 at 2025-02-22 22:46:57 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/users/980190962" for 127.0.0.1 at 2025-02-22 22:46:57 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"user" => {"username" => "one", "name" => "one", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962" for 127.0.0.1 at 2025-02-22 22:46:57 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users" for 127.0.0.1 at 2025-02-22 22:46:57 -0500
+Processing by UsersController#index as HTML
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (8.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (7.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 03:54:07.923714', '2025-02-23 03:54:07.923714'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 03:54:07.923714', '2025-02-23 03:54:07.923714');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 03:54:08.042662', '2025-02-23 03:54:08.042662'), (298486374, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 03:54:08.042662', '2025-02-23 03:54:08.042662');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 03:54:08.071643', '2025-02-23 03:54:08.071643'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 03:54:08.071643', '2025-02-23 03:54:08.071643');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 03:54:08.086798', '2025-02-23 03:54:08.086798', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 03:54:08.086798', '2025-02-23 03:54:08.086798', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$raPsQOeP1bJBbiz/CJjMseFgC5AcJ/upfE.VUNWyRjpaQLw5/ZnXG', '2025-02-23 03:54:08.104848', '2025-02-23 03:54:08.104848', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$cwgjpave3SJEOrfkTvdsp.FYz6zEVhyrT8FrC8HAeX4EZ2zfMh4MG', '2025-02-23 03:54:08.104848', '2025-02-23 03:54:08.104848', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (32.5ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (8.6ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started DELETE "/users/980190962" for 127.0.0.1 at 2025-02-22 22:54:11 -0500
+Processing by UsersController#destroy as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 106ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (13.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962" for 127.0.0.1 at 2025-02-22 22:54:19 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2025-02-22 22:54:20 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"user" => {"username" => "yar", "name" => "gar", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "yar"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "yar"], ["name", "gar"], ["email", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["created_at", "2025-02-23 03:54:20.040419"], ["updated_at", "2025-02-23 03:54:20.040419"], ["admin", nil], ["default", nil], ["false", nil], ["phone_number", "1231231234"], ["address", "Agh"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/980190963
+Completed 302 Found in 23ms (ActiveRecord: 2.2ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/new" for 127.0.0.1 at 2025-02-22 22:54:20 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 192.5ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 327.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 939.9ms | GC: 0.0ms)
+Completed 200 OK in 2190ms (Views: 1522.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962/edit" for 127.0.0.1 at 2025-02-22 22:54:22 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/users/980190962" for 127.0.0.1 at 2025-02-22 22:54:22 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"user" => {"username" => "one", "name" => "one", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (7.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 03:56:06.606819', '2025-02-23 03:56:06.606819'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 03:56:06.606819', '2025-02-23 03:56:06.606819');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 03:56:06.638585', '2025-02-23 03:56:06.638585'), (298486374, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 03:56:06.638585', '2025-02-23 03:56:06.638585');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 03:56:06.660961', '2025-02-23 03:56:06.660961'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 03:56:06.660961', '2025-02-23 03:56:06.660961');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 03:56:06.674987', '2025-02-23 03:56:06.674987', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 03:56:06.674987', '2025-02-23 03:56:06.674987', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$oZlIVQ0C2ESJyObwj14useYafau1ZGUmsHr.vH24t7Z82aaC3Z5OG', '2025-02-23 03:56:06.703343', '2025-02-23 03:56:06.703343', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$BcgrxJoHzb14cDVneHMpzO0QBIdMHZ1NKluWWaKh8i3fCeiGe7PMK', '2025-02-23 03:56:06.703343', '2025-02-23 03:56:06.703343', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (2.4ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/users/980190962" for 127.0.0.1 at 2025-02-22 22:56:07 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"user" => {"username" => "one", "name" => "one", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 20ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2025-02-22 22:56:07 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"user" => {"username" => "yar", "name" => "gar", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "yar"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "yar"], ["name", "gar"], ["email", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["created_at", "2025-02-23 03:56:07.525540"], ["updated_at", "2025-02-23 03:56:07.525540"], ["admin", nil], ["default", nil], ["false", nil], ["phone_number", "1231231234"], ["address", "Agh"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/980190963
+Completed 302 Found in 16ms (ActiveRecord: 1.6ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/new" for 127.0.0.1 at 2025-02-22 22:56:07 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 15.3ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 22.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 68.2ms | GC: 0.0ms)
+Completed 200 OK in 215ms (Views: 110.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962" for 127.0.0.1 at 2025-02-22 22:56:07 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962/edit" for 127.0.0.1 at 2025-02-22 22:56:07 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started DELETE "/users/980190962" for 127.0.0.1 at 2025-02-22 22:56:07 -0500
+Processing by UsersController#destroy as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (5.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 03:57:24.286017', '2025-02-23 03:57:24.286017'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 03:57:24.286017', '2025-02-23 03:57:24.286017');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 03:57:24.300509', '2025-02-23 03:57:24.300509'), (298486374, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 03:57:24.300509', '2025-02-23 03:57:24.300509');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 03:57:24.311937', '2025-02-23 03:57:24.311937'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 03:57:24.311937', '2025-02-23 03:57:24.311937');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 03:57:24.322109', '2025-02-23 03:57:24.322109', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 03:57:24.322109', '2025-02-23 03:57:24.322109', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$BesAHuBnotlDUo2/XnWl4.rxiq.iPp7/1HNmVFGhYABpinubahG52', '2025-02-23 03:57:24.333610', '2025-02-23 03:57:24.333610', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$FJgTIDwYklT/YSXbZPCzC.jWyYuzloqkFzIyzJW0OWcFF5Jb5jT..', '2025-02-23 03:57:24.333610', '2025-02-23 03:57:24.333610', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (1.6ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/users/980190962" for 127.0.0.1 at 2025-02-22 22:57:24 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"user" => {"username" => "one", "name" => "one", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 19ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2025-02-22 22:57:25 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"user" => {"username" => "yar", "name" => "gar", "phone_number" => "1231231234", "address" => "Agh", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "yar"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "yar"], ["name", "gar"], ["email", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["created_at", "2025-02-23 03:57:25.101217"], ["updated_at", "2025-02-23 03:57:25.101217"], ["admin", nil], ["default", nil], ["false", nil], ["phone_number", "1231231234"], ["address", "Agh"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/980190963
+Completed 302 Found in 17ms (ActiveRecord: 1.9ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users" for 127.0.0.1 at 2025-02-22 22:57:25 -0500
+Processing by UsersController#index as HTML
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/new" for 127.0.0.1 at 2025-02-22 22:57:25 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 15.3ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 22.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 70.4ms | GC: 0.0ms)
+Completed 200 OK in 190ms (Views: 96.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962" for 127.0.0.1 at 2025-02-22 22:57:25 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/users/980190962/edit" for 127.0.0.1 at 2025-02-22 22:57:25 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started DELETE "/users/980190962" for 127.0.0.1 at 2025-02-22 22:57:25 -0500
+Processing by UsersController#destroy as HTML
+  Parameters: {"id" => "980190962"}
+Redirected to http://www.example.com/
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (6.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 04:11:10.746287', '2025-02-23 04:11:10.746287'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 04:11:10.746287', '2025-02-23 04:11:10.746287');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 04:11:10.759098', '2025-02-23 04:11:10.759098'), (298486374, 'MyString2', 'MyString2', 1, 'MyString2', 'MyString2', '2099-02-17', '2025-02-23 04:11:10.759098', '2025-02-23 04:11:10.759098');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 04:11:10.769321', '2025-02-23 04:11:10.769321'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 04:11:10.769321', '2025-02-23 04:11:10.769321');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 04:11:10.778236', '2025-02-23 04:11:10.778236', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 04:11:10.778236', '2025-02-23 04:11:10.778236', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$q.XbHD7tlmaYExk2PutSAuf9rBJ7KGpj/IBiwKHdyWfIMpAGG.WTm', '2025-02-23 04:11:10.789288', '2025-02-23 04:11:10.789288', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$F7j8nR1Ix8s6i1rT3b00uuDBY4jYXHXQIpvFQnO2NAX1gR.vFtP9S', '2025-02-23 04:11:10.789288', '2025-02-23 04:11:10.789288', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (1.5ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------
+UserTest: test_invalid:_user_missing_parameters
+-----------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------
+UserTest: test_valid:_create_user
+---------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "one"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------
+UserTest: test_invalid:_email_does_not_have_@_symbol
+----------------------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------
+UserTest: test_invalid:_email_has_no_domain
+-------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (6.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (4.9ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 04:20:34.051176', '2025-02-23 04:20:34.051176'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 04:20:34.051176', '2025-02-23 04:20:34.051176');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 04:20:34.062917', '2025-02-23 04:20:34.062917'), (298486374, 'MyString2', 'MyString2', 1, 'MyString2', 'MyString2', '2099-02-17', '2025-02-23 04:20:34.062917', '2025-02-23 04:20:34.062917');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 04:20:34.076507', '2025-02-23 04:20:34.076507'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 04:20:34.076507', '2025-02-23 04:20:34.076507');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 04:20:34.084692', '2025-02-23 04:20:34.084692', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 04:20:34.084692', '2025-02-23 04:20:34.084692', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$ipF0XrOIw3mAUnXvwYgN..jlKVR7TZ0yoVPSfFiAbskeXYYwzU67O', '2025-02-23 04:20:34.094617', '2025-02-23 04:20:34.094617', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$wlEEDP4/l.hRfhENO65PmOM6z441KQK7mr6CsxFlDDT4u0X.Nn/xC', '2025-02-23 04:20:34.094617', '2025-02-23 04:20:34.094617', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (1.2ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------
+UserTest: test_invalid:_email_has_no_domain
+-------------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "[FILTERED]"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "one"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "email" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email", "[FILTERED]"], ["updated_at", "2025-02-23 04:20:34.211983"], ["id", 980190962]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------
+UserTest: test_invalid:_email_does_not_have_@_symbol
+----------------------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "[FILTERED]"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "one"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "[FILTERED]"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "one"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------
+UserTest: test_invalid:_user_missing_parameters
+-----------------------------------------------
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL AND "users"."id" != ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "one"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL AND "users"."id" != ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" IS NULL AND "users"."id" != ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------
+UserTest: test_valid:_create_user
+---------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "one"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (6.5ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM "credit_cards";
+DELETE FROM "movies";
+DELETE FROM "shows";
+DELETE FROM "tickets";
+DELETE FROM "users";
+INSERT INTO "credit_cards" ("id", "card_number", "expiration_date", "user_id", "created_at", "updated_at") VALUES (564809901, '1234123412341234', '2099-02-18', 980190962, '2025-02-23 04:21:16.384040', '2025-02-23 04:21:16.384040'), (298486374, 'MyString', '2025-02-18', 298486374, '2025-02-23 04:21:16.384040', '2025-02-23 04:21:16.384040');
+INSERT INTO "movies" ("id", "title", "genre", "duration", "language", "rating", "release_date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 'MyString', '2025-02-17', '2025-02-23 04:21:16.397786', '2025-02-23 04:21:16.397786'), (298486374, 'MyString2', 'MyString2', 1, 'MyString2', 'MyString2', '2099-02-17', '2025-02-23 04:21:16.397786', '2025-02-23 04:21:16.397786');
+INSERT INTO "shows" ("id", "movie_id", "date", "time", "seats_available", "ticket_price", "created_at", "updated_at") VALUES (980190962, 980190962, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 04:21:16.408253', '2025-02-23 04:21:16.408253'), (298486374, 298486374, '2025-02-17', '2000-01-01 23:26:55', 1, 1, '2025-02-23 04:21:16.408253', '2025-02-23 04:21:16.408253');
+INSERT INTO "tickets" ("id", "user_id", "show_id", "confirmation_number", "status", "created_at", "updated_at", "credit_card_id") VALUES (980190962, 980190962, 980190962, 'MyString', 'MyString', '2025-02-23 04:21:16.416714', '2025-02-23 04:21:16.416714', NULL), (298486374, 298486374, 298486374, 'MyString', 'MyString', '2025-02-23 04:21:16.416714', '2025-02-23 04:21:16.416714', NULL);
+INSERT INTO "users" ("id", "username", "name", "email", "password_digest", "created_at", "updated_at", "admin", "default", "false", "phone_number", "address") VALUES (980190962, 'one', 'one', 'one@email.com', '$2a$12$SYmyAfod.Hpk5IPfCVrGF.R4HekNIIPRclcNPC5qx6Zgxb0HOdyeC', '2025-02-23 04:21:16.426236', '2025-02-23 04:21:16.426236', NULL, NULL, NULL, NULL, NULL), (298486374, 'two', 'two', 'two@email.com', '$2a$12$OUfuaXHOwygd39S2J/FC5.kIENp0ww.uTcEvHkvtxGgUm7Knsr.Xq', '2025-02-23 04:21:16.426236', '2025-02-23 04:21:16.426236', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (2.1ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------
+UserTest: test_invalid:_email_has_no_domain
+-------------------------------------------
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "[FILTERED]"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "one"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "[FILTERED]"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "one"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------
+UserTest: test_valid:_create_user
+---------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "one"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------
+UserTest: test_invalid:_email_does_not_have_@_symbol
+----------------------------------------------------
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "[FILTERED]"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "one"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "[FILTERED]"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "one"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------
+UserTest: test_invalid:_user_missing_parameters
+-----------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL AND "users"."id" != ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "one"], ["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL AND "users"."id" != ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" IS NULL AND "users"."id" != ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m

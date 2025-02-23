@@ -10,7 +10,7 @@ class User < ApplicationRecord
     uniqueness: true,
     format:
     {
-      with: /\A[A-Za-z0-9\-\_\.]*@[A-Za-z0-9\-\_\.]*.[A-Za-z0-9\-\_\.]*\z/,
+      with: /\A[A-Za-z0-9\-\_\.]*@[A-Za-z0-9\-\_\.]*\.[A-Za-z0-9\-\_\.]*\z/,
       message: "The email must contain an @ sign and a domain (e.g. name@domain.com)."
     }
 

@@ -51,6 +51,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
+    @user.tickets.destroy_all
     @user.destroy
 
     session[:user_id] = nil
